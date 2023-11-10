@@ -1,0 +1,7 @@
+C:\Users\ipaez\Desktop\CursosConsware\c#\DrawSomthing\DrawSomthing\bin\Debug\DrawSomthing.exe.config
+C:\Users\ipaez\Desktop\CursosConsware\c#\DrawSomthing\DrawSomthing\bin\Debug\DrawSomthing.exe
+C:\Users\ipaez\Desktop\CursosConsware\c#\DrawSomthing\DrawSomthing\bin\Debug\DrawSomthing.pdb
+C:\Users\ipaez\Desktop\CursosConsware\c#\DrawSomthing\DrawSomthing\obj\Debug\DrawSomthing.csproj.AssemblyReference.cache
+C:\Users\ipaez\Desktop\CursosConsware\c#\DrawSomthing\DrawSomthing\obj\Debug\DrawSomthing.csproj.CoreCompileInputs.cache
+C:\Users\ipaez\Desktop\CursosConsware\c#\DrawSomthing\DrawSomthing\obj\Debug\DrawSomthing.exe
+C:\Users\ipaez\Desktop\CursosConsware\c#\DrawSomthing\DrawSomthing\obj\Debug\DrawSomthing.pdb
