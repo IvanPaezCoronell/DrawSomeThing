@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DrawSomthing
 {
@@ -15,7 +12,7 @@ namespace DrawSomthing
 
             string wordString, checkValidate;
             int nWord;
-           
+
 
             Console.WriteLine("Cuantas letras tiene la palabra?  ");
             nWord = Convert.ToInt32(Console.ReadLine());
@@ -28,31 +25,36 @@ namespace DrawSomthing
             checkValidate = ValidateWord(wordString, nWord);
 
 
+            Console.WriteLine("Generando posibles palabras... Por favor espere.");
+
+
+
             // Se valida la longitud de cadena con el numero de letras 
-            if(wordString.Length > nWord)
+            if (wordString.Length > nWord)
             {
                 throw new Exception("ERROR: No puede exceder el numero de caracteres...");
 
-            } else
+            }
+            else
             {
                 List<string> dictionary = Dictionary();
                 List<string> combinationsList = GenerarCombinations(checkValidate, dictionary);
 
                 Console.WriteLine($"Las posibles combinaciones para la cadena '{checkValidate}' son: \n");
 
-              
+
 
                 foreach (var words in combinationsList)
                 {
-                   
+
                     Console.WriteLine(words);
-                    
+
                 }
             }
 
 
-            
-            
+
+
 
         }
 
@@ -65,7 +67,7 @@ namespace DrawSomthing
         }
 
         // Metodo para inicializar la lista con el array obtenido
-       public static List<string> GenerarCombinations(string wordString, List<string> dictionary)
+        public static List<string> GenerarCombinations(string wordString, List<string> dictionary)
         {
             List<string> combinationsList = new List<string>();
 
@@ -76,7 +78,7 @@ namespace DrawSomthing
 
 
         // Metodo para generar las combinaciones posibles
-       public static void CombinationsList(char[] letter, int index, List<string> combinationsList, List<string> dictionary)
+        public static void CombinationsList(char[] letter, int index, List<string> combinationsList, List<string> dictionary)
         {
 
             /// si es la última posición de la cadena se agrega la combinacion final en la lista
@@ -89,9 +91,9 @@ namespace DrawSomthing
                 if (dictionary.Contains(combination))
                 {
                     combinationsList.Add(combination);
-                } 
-                       
-                
+                }
+
+
             }
             else
             {
@@ -115,7 +117,7 @@ namespace DrawSomthing
         }
 
         // Metodo para validar la cadena ingresada
-       public static string ValidateWord(string wordString, int nWord)
+        public static string ValidateWord(string wordString, int nWord)
         {
             // Validamos que el campo de la palabra no venga vacio o sea mayor que 12 
             if (wordString == "" || wordString.Length > 12 || nWord > 12 || nWord == 0)
