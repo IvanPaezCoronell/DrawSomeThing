@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,41 +35,63 @@ namespace DrawSomthing
 
             } else
             {
-                List<string> combinationsList = GenerarCombinations(checkValidate);
+                List<string> dictionary = Dictionary();
+                List<string> combinationsList = GenerarCombinations(checkValidate, dictionary);
 
                 Console.WriteLine($"Las posibles combinaciones para la cadena '{checkValidate}' son: \n");
 
+              
+
                 foreach (var words in combinationsList)
                 {
+                   
                     Console.WriteLine(words);
+                    
                 }
             }
 
 
-
+            
+            
 
         }
 
+        // Metodo para obtener las palabras del txt en una lista
+        public static List<string> Dictionary()
+        {
+            string path = "Palabras.txt";
+            List<string> dictionary = File.ReadAllLines(path).ToList();
+            return dictionary;
+        }
+
         // Metodo para inicializar la lista con el array obtenido
-       public static List<string> GenerarCombinations(string wordString)
+       public static List<string> GenerarCombinations(string wordString, List<string> dictionary)
         {
             List<string> combinationsList = new List<string>();
 
-            CombinationsList(wordString.ToCharArray(), 0, combinationsList);
+            CombinationsList(wordString.ToCharArray(), 0, combinationsList, dictionary);
 
             return combinationsList;
         }
 
 
-
         // Metodo para generar las combinaciones posibles
-       public static void CombinationsList(char[] letter, int index, List<string> combinationsList)
+       public static void CombinationsList(char[] letter, int index, List<string> combinationsList, List<string> dictionary)
         {
 
             /// si es la última posición de la cadena se agrega la combinacion final en la lista
             if (index == letter.Length - 1)
             {
-                combinationsList.Add(new string(letter));
+
+                // cadena en base a un arreglo de tipo char
+                string combination = new string(letter);
+
+                if (dictionary.Contains(combination))
+                {
+                    combinationsList.Add(combination);
+                } 
+                       
+                
             }
             else
             {
@@ -81,7 +104,7 @@ namespace DrawSomthing
                     letter[i] = temp;
 
                     // Recursividad para hallar las demas combinaciones
-                    CombinationsList(letter, index + 1, combinationsList);
+                    CombinationsList(letter, index + 1, combinationsList, dictionary);
 
                     // cadena original
                     temp = letter[index];
